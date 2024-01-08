@@ -1,0 +1,115 @@
+<!-- crudapp/templates/add_student.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/236x/25/47/ac/2547acec39f58c4ced46e8a1982e8ad7.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #0f0e0e;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3bb8d4;
+        }
+        h2{
+            text-transform: capitalize;
+            text-decoration: underline;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center; color: rgb(233, 217, 217);">Student Registration</h2>
+
+
+    <form method="post" action="{% url 'add_student' %}">
+
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" name="age" required><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        
+        <label for="joining_date">Joining Date:</label>
+        <input type="date" name="joining_date" required><br>
+        
+        <label for="qualification">Qualification:</label>
+        <select name="qualification" required>
+            <option value="" disabled selected>Select Qualification</option>
+            <option value="High School">High School</option>
+            <option value="Bachelor's Degree">Bachelor's Degree</option>
+            <option value="Master's Degree">Master's Degree</option>
+        </select>
+        
+        <label for="gender">Gender:</label>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female" required> Female<br>
+
+        
+        <label for="mobile_number">Contact:</label>
+        <input type="text" name="mobile_number" required><br>
+        
+        <label for="address">Address:</label>
+        <textarea name="address" required></textarea><br>
+        
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

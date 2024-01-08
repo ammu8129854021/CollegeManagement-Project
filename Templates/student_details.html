@@ -1,0 +1,73 @@
+<!-- crudapp/templates/student_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #007bff;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Student Details</h2>
+        
+        <ul>
+            <li><strong>Name:</strong> {{ student.name }}</li>
+            <li><strong>Age:</strong> {{ student.age }}</li>
+            <li><strong>Email:</strong> {{ student.email }}</li>
+            <li><strong>Joining Date:</strong> {{ student.joining_date }}</li>
+            <li><strong>Qualification:</strong> {{ student.qualification }}</li>
+            <li><strong>Gender:</strong> {{ student.gender }}</li>
+            <li><strong>Contact:</strong> {{ student.mobile_number }}</li>
+            <li><strong>Address:</strong> {{ student.address }}</li>
+        </ul>
+
+        <a href="{% url 'edit_student' student.id %}">Edit</a>
+        <a href="{% url 'delete_student' student.id %}">Delete</a>
+    </div>
+</body>
+</html>
